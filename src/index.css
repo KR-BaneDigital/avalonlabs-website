@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 15%;
+    --primary: 270 65% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 55% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --tertiary: 270 65% 50%;
+    --tertiary-foreground: 0 0% 100%;
+    --neutral: 0 0% 98%;
+    --neutral-foreground: 210 15% 15%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 9% 30%;
+    --accent: 270 65% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 10% 90%;
+    --input: 210 10% 90%;
+    --ring: 270 65% 50%;
+    --radius: 0.75rem;
+    --success: 145 60% 40%;
+    --warning: 35 90% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+  }
+}
