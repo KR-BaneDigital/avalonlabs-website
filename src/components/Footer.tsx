@@ -84,7 +84,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/terms-of-service"
                   className="text-gray-400 hover:text-accent transition-colors duration-200"
                 >
                   Terms of Service
@@ -92,7 +92,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/privacy-policy"
                   className="text-gray-400 hover:text-accent transition-colors duration-200"
                 >
                   Privacy Policy
