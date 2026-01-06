@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -83,20 +84,20 @@ const Footer = () => {
             <h4 className="font-bold mb-4 text-white">Legal</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="/terms-of-service"
+                <Link
+                  to="/terms-of-service"
                   className="text-gray-400 hover:text-accent transition-colors duration-200"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/privacy-policy"
+                <Link
+                  to="/privacy-policy"
                   className="text-gray-400 hover:text-accent transition-colors duration-200"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
                 <a
