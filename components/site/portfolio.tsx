@@ -41,6 +41,14 @@ const BRANDS: Brand[] = [
     description:
       "An in-house desk that develops and runs proprietary trading algorithms. Systematic strategies are researched, back-tested, and deployed using company capital. Strategy details, markets, and performance are not publicly disclosed.",
   },
+  {
+    name: null,
+    sector: "Crypto whale watching",
+    audience: "Crypto researchers and analysts",
+    status: "In development",
+    description:
+      "A system in development for monitoring large cryptocurrency wallet movements and researching on-chain activity. Further product details will be shared when publicly announced.",
+  },
 ];
 
 function StatusMark({ status }: { status: Brand["status"] }) {
@@ -80,8 +88,9 @@ export function Portfolio() {
             </h2>
           </div>
           <p className="max-w-sm text-muted-foreground text-sm leading-relaxed">
-            Market intelligence, financial data, and proprietary trading. Each
-            entry shows its audience and current availability.
+            Market intelligence, financial data, proprietary trading, and crypto
+            whale watching. Each entry shows its audience and current
+            availability.
           </p>
         </div>
         <div className="border-foreground border-t">

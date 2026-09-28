@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/site-metadata";
 
 export const metadata = pageMetadata(
   "Avalon Labs | Research, Data & Trading",
-  "Avalon Labs LLC works across market intelligence, financial data, and proprietary trading, including Olympus Atlas, a product in development, and a private trading desk.",
+  "Avalon Labs LLC operates Olympus Atlas and works across financial data, proprietary trading, and crypto whale watching. Explore the portfolio and product availability.",
   "/"
 );
 

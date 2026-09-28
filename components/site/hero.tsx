@@ -19,9 +19,9 @@ export function Hero() {
           We build and operate brands for people who work with financial data.
         </h1>
         <p className="max-w-xl text-pretty text-lg text-muted-foreground leading-relaxed">
-          Avalon Labs LLC works across market intelligence, financial data, and
-          proprietary trading. Our portfolio includes Olympus Atlas, a financial
-          data product in development, and a private trading desk.
+          Avalon Labs LLC brings together Olympus Atlas, a private trading desk,
+          and two products in development: a financial data platform and a
+          crypto whale-watching system.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <a

@@ -42,9 +42,9 @@ export function OperatingModel() {
           <p className="max-w-md text-pretty text-muted-foreground leading-relaxed">
             Avalon Labs LLC is a Delaware limited liability company and the
             operator of Olympus Atlas. Our portfolio brings together a public
-            research terminal, a financial data product in development, and
-            private proprietary trading. Each has a distinct purpose and
-            audience; its status is shown above.
+            research terminal, private proprietary trading, and financial data
+            and crypto whale-watching products in development. Each has a
+            distinct purpose and audience; its status is shown above.
           </p>
         </div>
         <div className="grid gap-10 md:grid-cols-2 lg:col-span-7">

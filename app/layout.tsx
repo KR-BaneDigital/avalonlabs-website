@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Avalon Labs | Research, Data & Trading",
   description:
-    "Avalon Labs LLC works across market intelligence, financial data, and proprietary trading, including Olympus Atlas, a product in development, and a private trading desk.",
+    "Avalon Labs LLC operates Olympus Atlas and works across financial data, proprietary trading, and crypto whale watching. Explore the portfolio and product availability.",
 };
 
 export const viewport: Viewport = {

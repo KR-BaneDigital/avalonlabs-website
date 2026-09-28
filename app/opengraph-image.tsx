@@ -58,7 +58,7 @@ export default function OpenGraphImage() {
           color: "#12474b",
         }}
       >
-        <span>Market intelligence · Financial data · Proprietary trading</span>
+        <span>Research · Financial data · Trading · Crypto intelligence</span>
         <span>avalonlabs.ai</span>
       </div>
     </div>,
