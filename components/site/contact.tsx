@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = "hello@avalonlabs.com";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 const REASONS = ["Partnerships", "Press", "Questions about a brand"];
 
