@@ -1,11 +1,11 @@
 const PRODUCT_RESPONSIBILITIES = [
-  "Research tools and release coverage",
-  "Product documentation and support",
-  "Product-specific terms and privacy information",
+  "Purpose, audience, and development roadmap",
+  "Features, documentation, and support for public products",
+  "Terms and privacy information for each public service",
 ];
 
 const COMPANY_FUNCTIONS = [
-  "Development and operation of Olympus Atlas",
+  "Portfolio direction and development",
   "Corporate website and hosting",
   "Company inquiries and follow-up",
 ];
@@ -37,13 +37,14 @@ export function OperatingModel() {
             className="text-balance font-medium text-3xl tracking-tight md:text-4xl"
             id="model-title"
           >
-            A product with an identifiable operator.
+            Different work. Shared company foundations.
           </h2>
           <p className="max-w-md text-pretty text-muted-foreground leading-relaxed">
             Avalon Labs LLC is a Delaware limited liability company and the
-            operator of Olympus Atlas. Product features, coverage, and support
-            are described on the Olympus Atlas website. This website provides
-            company information and a way to contact Avalon Labs.
+            operator of Olympus Atlas. Our portfolio brings together a public
+            research terminal, a financial data product in development, and
+            private proprietary trading. Each has a distinct purpose and
+            audience; its status is shown above.
           </p>
         </div>
         <div className="grid gap-10 md:grid-cols-2 lg:col-span-7">

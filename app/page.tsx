@@ -8,8 +8,8 @@ import { SiteHeader } from "@/components/site/site-header";
 import { pageMetadata } from "@/lib/site-metadata";
 
 export const metadata = pageMetadata(
-  "Avalon Labs | Operator of Olympus Atlas",
-  "Avalon Labs LLC develops and operates Olympus Atlas, a research platform for official economic releases.",
+  "Avalon Labs | Research, Data & Trading",
+  "Avalon Labs LLC works across market intelligence, financial data, and proprietary trading, including Olympus Atlas, a product in development, and a private trading desk.",
   "/"
 );
 

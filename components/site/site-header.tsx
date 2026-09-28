@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { LogoLockup } from "./logo";
 
 const NAV = [
-  { href: "/#portfolio", label: "Our product" },
+  { href: "/#portfolio", label: "Our portfolio" },
   { href: "/#model", label: "How we operate" },
   { href: "/#data", label: "Privacy & information" },
 ];

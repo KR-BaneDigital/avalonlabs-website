@@ -19,9 +19,9 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Avalon Labs | Operator of Olympus Atlas",
+  title: "Avalon Labs | Research, Data & Trading",
   description:
-    "Avalon Labs LLC develops and operates Olympus Atlas, a research platform for official economic releases.",
+    "Avalon Labs LLC works across market intelligence, financial data, and proprietary trading, including Olympus Atlas, a product in development, and a private trading desk.",
 };
 
 export const viewport: Viewport = {

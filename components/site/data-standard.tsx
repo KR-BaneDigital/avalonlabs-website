@@ -14,12 +14,13 @@ export function DataStandard() {
             className="text-balance font-medium text-3xl tracking-tight md:text-5xl"
             id="data-title"
           >
-            Clear about the company. Specific about the product.
+            Clear about the company. Specific to each service.
           </h2>
           <p className="max-w-2xl text-background/75 leading-relaxed">
             Our Privacy Policy explains how Avalon Labs LLC handles information
-            from this website and company inquiries. Each product&apos;s privacy
-            notice explains its own information practices.
+            from this website and company inquiries. Public products have their
+            own terms and privacy information. A listing here does not make
+            every part of the portfolio a publicly available service.
           </p>
         </div>
         <div className="grid gap-10 md:grid-cols-2">

@@ -53,8 +53,10 @@ const sections: LegalSection[] = [
           buy or sell securities.
         </p>
         <p>
-          Product descriptions are summaries. Visit Olympus Atlas for current
-          coverage, availability, and access options. Information and
+          Portfolio descriptions are summaries, with availability shown for each
+          entry. Visit Olympus Atlas for that product&apos;s current coverage
+          and access options. A private or in-development listing is not an
+          invitation to open an account or purchase a service. Information and
           availability can change; contact us if a detail is important to a
           decision or appears inaccurate.
         </p>

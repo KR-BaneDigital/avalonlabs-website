@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Avalon Labs — operator of Olympus Atlas";
+export const alt = "Avalon Labs — research, data, and trading";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,7 +45,7 @@ export default function OpenGraphImage() {
           Built for people who work with financial data.
         </div>
         <div style={{ fontSize: 28, color: "#5c676c" }}>
-          Avalon Labs LLC · Operator of Olympus Atlas
+          Avalon Labs LLC · Research, data & trading
         </div>
       </div>
       <div
@@ -58,7 +58,7 @@ export default function OpenGraphImage() {
           color: "#12474b",
         }}
       >
-        <span>Official economic research</span>
+        <span>Market intelligence · Financial data · Proprietary trading</span>
         <span>avalonlabs.ai</span>
       </div>
     </div>,
