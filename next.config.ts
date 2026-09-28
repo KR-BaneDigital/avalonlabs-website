@@ -1,18 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  images: {
-    remotePatterns: [
+  async headers() {
+    return [
       {
-        hostname: "avatar.vercel.sh",
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Strict-Transport-Security", value: "max-age=63072000" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
       },
-      {
-        protocol: "https",
-        //https://nextjs.org/docs/messages/next-image-unconfigured-host
-        hostname: "*.public.blob.vercel-storage.com",
-      },
-    ],
+    ];
   },
 };
 
