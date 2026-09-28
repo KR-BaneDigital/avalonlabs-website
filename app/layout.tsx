@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site-metadata";
 
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -17,9 +18,10 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Avalon Labs — A group of financial information brands",
+  metadataBase: new URL(SITE_URL),
+  title: "Avalon Labs | Operator of Olympus Atlas",
   description:
-    "Avalon Labs builds and operates independent brands across market research, financial data and investor tooling, including Olympus Atlas.",
+    "Avalon Labs LLC develops and operates Olympus Atlas, a research platform for official economic releases.",
 };
 
 export const viewport: Viewport = {

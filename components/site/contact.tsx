@@ -1,6 +1,6 @@
 import { CONTACT_EMAIL } from "@/lib/contact";
 
-const REASONS = ["Partnerships", "Press", "Questions about a brand"];
+const REASONS = ["Partnerships", "Press", "Company inquiries"];
 
 export function Contact() {
   return (
@@ -14,11 +14,18 @@ export function Contact() {
             className="text-balance font-medium text-3xl tracking-tight md:text-5xl"
             id="contact-title"
           >
-            Talk to the group.
+            Talk to Avalon Labs.
           </h2>
           <p className="max-w-md text-pretty text-muted-foreground leading-relaxed">
-            For product support, please contact the brand directly. For
-            anything that concerns the group, write to us.
+            For company inquiries, write to Avalon Labs LLC. For help with the
+            research terminal, visit{" "}
+            <a
+              className="text-primary underline underline-offset-4"
+              href="https://www.olympusatlas.com/contact"
+            >
+              Olympus Atlas support
+            </a>
+            .
           </p>
         </div>
         <div className="flex flex-col justify-end gap-6 lg:col-span-5">
@@ -33,7 +40,7 @@ export function Contact() {
             ))}
           </ul>
           <a
-            className="w-fit border-primary border-b-2 pb-1 font-medium text-2xl text-primary transition-opacity hover:opacity-80 md:text-3xl"
+            className="w-fit max-w-full break-words border-primary border-b-2 pb-1 font-medium text-2xl text-primary transition-opacity hover:opacity-80 md:text-3xl"
             href={`mailto:${CONTACT_EMAIL}`}
           >
             {CONTACT_EMAIL}
