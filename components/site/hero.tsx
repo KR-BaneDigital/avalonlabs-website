@@ -1,4 +1,5 @@
 import { Guilloche } from "./guilloche";
+import { LogoFull } from "./logo";
 
 export function Hero() {
   return (
@@ -41,9 +42,9 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
         <Guilloche className="h-auto w-full" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="rounded-full bg-background px-3 py-1 font-mono text-[11px] text-primary uppercase tracking-widest">
-            Avalon
-          </span>
+          <div className="flex aspect-square w-1/2 items-center justify-center rounded-full bg-background p-8 shadow-sm">
+            <LogoFull className="h-auto w-full text-foreground" />
+          </div>
         </div>
       </div>
     </section>

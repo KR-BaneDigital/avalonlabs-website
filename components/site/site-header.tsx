@@ -1,3 +1,5 @@
+import { LogoMark } from "./logo";
+
 const NAV = [
   { href: "#portfolio", label: "Portfolio" },
   { href: "#model", label: "How we operate" },
@@ -9,12 +11,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a className="flex items-center gap-3" href="#top">
-          <span
-            aria-hidden="true"
-            className="flex size-7 items-center justify-center rounded-full border border-primary font-mono text-primary text-xs"
-          >
-            A
-          </span>
+          <LogoMark className="size-7 text-foreground" />
           <span className="font-semibold tracking-tight">Avalon Labs</span>
         </a>
         <nav aria-label="Primary" className="flex items-center gap-8">
