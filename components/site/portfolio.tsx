@@ -29,9 +29,11 @@ const BRANDS: Brand[] = [
   },
   {
     name: null,
-    sector: "Investor tooling",
-    audience: "Individual investors",
+    sector: "Proprietary trading",
+    audience: "The group's own capital",
     status: "Private",
+    description:
+      "An in-house desk that develops and runs proprietary trading algorithms. Systematic strategies are researched, back-tested and deployed on the group's own balance sheet. Strategy details, markets and performance are not disclosed.",
   },
 ];
 
