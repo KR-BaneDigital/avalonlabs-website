@@ -42,8 +42,8 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
         <Guilloche className="h-auto w-full" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex aspect-square w-1/2 items-center justify-center rounded-full bg-background p-8 shadow-sm">
-            <LogoFull className="h-auto w-full text-foreground" />
+          <div className="flex aspect-square w-1/3 items-center justify-center rounded-full bg-background shadow-sm">
+            <LogoFull className="h-auto w-3/5" />
           </div>
         </div>
       </div>

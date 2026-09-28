@@ -1,4 +1,4 @@
-import { LogoMark } from "./logo";
+import { LogoLockup } from "./logo";
 
 const NAV = [
   { href: "#portfolio", label: "Portfolio" },
@@ -10,9 +10,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a className="flex items-center gap-3" href="#top">
-          <LogoMark className="size-7 text-foreground" />
-          <span className="font-semibold tracking-tight">Avalon Labs</span>
+        <a aria-label="Avalon Labs home" href="#top">
+          <LogoLockup />
         </a>
         <nav aria-label="Primary" className="flex items-center gap-8">
           <ul className="hidden items-center gap-8 md:flex">
