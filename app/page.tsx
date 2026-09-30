@@ -5,17 +5,19 @@ import { OperatingModel } from "@/components/site/operating-model";
 import { Portfolio } from "@/components/site/portfolio";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
-import { pageMetadata } from "@/lib/site-metadata";
+import { StructuredData } from "@/components/site/structured-data";
+import {
+  pageMetadata,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+} from "@/lib/site-metadata";
 
-export const metadata = pageMetadata(
-  "Avalon Labs | Research, Data & Trading",
-  "Avalon Labs LLC operates Olympus Atlas and works across financial data, proprietary trading, and crypto whale watching. Explore the portfolio and product availability.",
-  "/"
-);
+export const metadata = pageMetadata(SITE_TITLE, SITE_DESCRIPTION, "/");
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Hero />

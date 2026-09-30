@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/site-metadata";
 
 export const metadata = pageMetadata(
   "Website Terms | Avalon Labs",
-  "Terms for using the Avalon Labs LLC corporate website, its information, materials, and links to Olympus Atlas.",
+  "Terms for using the Avalon Labs LLC corporate website, portfolio information, branding, and links to its products and external websites.",
   "/terms"
 );
 
