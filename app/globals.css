@@ -39,8 +39,8 @@
     outline-offset: 5px;
   }
   ::selection {
-    background: var(--primary);
     color: var(--primary-foreground);
+    background: var(--primary);
   }
 }
 
@@ -62,8 +62,8 @@
 }
 
 .rosette-spin {
-  animation: rosette-spin 240s linear infinite;
   transform-origin: center;
+  animation: rosette-spin 240s linear infinite;
 }
 
 .rise {

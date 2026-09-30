@@ -1,14 +1,10 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite"],
-  "files": {
-    "includes": [
-      "**/*",
-      "!components/ui",
-      "!lib/utils.ts",
-      "!hooks/use-mobile.ts"
-    ]
-  },
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/react",
+    "ultracite/biome/next"
+  ],
   "linter": {
     "rules": {
       "suspicious": {
@@ -30,10 +26,6 @@
 
         /* Needs more work to fix */
         "noNestedTernary": "off"
-      },
-      "nursery": {
-        /* Too many false positives */
-        "noUnnecessaryConditions": "off"
       },
       "complexity": {
         /* Needs more work to fix */

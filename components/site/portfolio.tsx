@@ -1,22 +1,19 @@
 import { ArrowUpRight } from "lucide-react";
 
-type Brand = {
-  name: string | null;
-  sector: string;
+interface Brand {
   audience: string;
-  status: "Free terminal available" | "In development" | "Private";
   description: string;
   detail?: string;
   disclaimer?: string;
   href?: string;
-};
+  name: string | null;
+  sector: string;
+  status: "Free terminal available" | "In development" | "Private";
+}
 
 const BRANDS: Brand[] = [
   {
-    name: "Olympus Atlas",
-    sector: "Market intelligence",
     audience: "Researchers, analysts, and investment committees",
-    status: "Free terminal available",
     description:
       "A free research terminal for exploring official economic releases, reported figures, source evidence, and available revision history.",
     detail:
@@ -24,31 +21,34 @@ const BRANDS: Brand[] = [
     disclaimer:
       "Olympus Atlas provides informational research tools. It does not execute trades for users, provide personalized investment advice, or guarantee investment outcomes.",
     href: "https://www.olympusatlas.com",
+    name: "Olympus Atlas",
+    sector: "Market intelligence",
+    status: "Free terminal available",
   },
   {
-    name: null,
-    sector: "Financial data",
     audience: "Institutions and developers",
-    status: "In development",
     description:
       "A financial data product in development for institutions and developers. Further product details will be shared when publicly announced.",
+    name: null,
+    sector: "Financial data",
+    status: "In development",
   },
   {
-    name: null,
-    sector: "Proprietary trading",
     audience: "Company capital",
-    status: "Private",
     description:
       "An in-house desk that develops and runs proprietary trading algorithms. Systematic strategies are researched, back-tested, and deployed using company capital. Strategy details, markets, and performance are not publicly disclosed.",
+    name: null,
+    sector: "Proprietary trading",
+    status: "Private",
   },
   {
-    name: "Blackfin Compass",
-    sector: "Crypto whale watching",
     audience: "Crypto researchers and analysts",
-    status: "In development",
     description:
       "A crypto whale-watching system in development for monitoring large cryptocurrency wallet movements and researching on-chain activity.",
     href: "https://blackfincompass.com",
+    name: "Blackfin Compass",
+    sector: "Crypto whale watching",
+    status: "In development",
   },
 ];
 
@@ -156,12 +156,12 @@ export function Portfolio() {
                   <p className="text-pretty text-muted-foreground leading-relaxed">
                     {brand.description}
                   </p>
-                  {brand.detail && (
+                  {Boolean(brand.detail) && (
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {brand.detail}
                     </p>
                   )}
-                  {brand.disclaimer && (
+                  {Boolean(brand.disclaimer) && (
                     <p className="border-t pt-4 text-muted-foreground text-sm leading-relaxed">
                       {brand.disclaimer}
                     </p>

@@ -10,8 +10,6 @@ export const metadata = pageMetadata(
 
 const sections: LegalSection[] = [
   {
-    id: "scope",
-    title: "Who we are and what this notice covers",
     content: (
       <>
         <p>
@@ -34,10 +32,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "scope",
+    title: "Who we are and what this notice covers",
   },
   {
-    id: "information",
-    title: "Information handled here",
     content: (
       <>
         <ul>
@@ -61,10 +59,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "information",
+    title: "Information handled here",
   },
   {
-    id: "purposes",
-    title: "How company-site information is used",
     content: (
       <>
         <p>
@@ -83,10 +81,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "purposes",
+    title: "How company-site information is used",
   },
   {
-    id: "providers",
-    title: "Company access and service providers",
     content: (
       <>
         <p>
@@ -120,10 +118,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "providers",
+    title: "Company access and service providers",
   },
   {
-    id: "cookies",
-    title: "Cookies and tracking on this website",
     content: (
       <>
         <p>
@@ -140,10 +138,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "cookies",
+    title: "Cookies and tracking on this website",
   },
   {
-    id: "retention",
-    title: "Retention",
     content: (
       <>
         <p>
@@ -161,10 +159,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "retention",
+    title: "Retention",
   },
   {
-    id: "requests",
-    title: "Privacy questions and requests",
     content: (
       <>
         <p>
@@ -186,10 +184,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "requests",
+    title: "Privacy questions and requests",
   },
   {
-    id: "updates",
-    title: "Changes to this notice",
     content: (
       <p>
         We will publish updates here with an updated effective date when this
@@ -197,6 +195,8 @@ const sections: LegalSection[] = [
         override rights or choices that apply to information already collected.
       </p>
     ),
+    id: "updates",
+    title: "Changes to this notice",
   },
 ];
 

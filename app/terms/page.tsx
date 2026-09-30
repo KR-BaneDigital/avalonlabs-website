@@ -10,8 +10,6 @@ export const metadata = pageMetadata(
 
 const sections: LegalSection[] = [
   {
-    id: "operator",
-    title: "This website and its operator",
     content: (
       <>
         <p>
@@ -29,10 +27,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "operator",
+    title: "This website and its operator",
   },
   {
-    id: "use",
-    title: "Using the website",
     content: (
       <p>
         You may browse and link to this website for lawful purposes. Do not
@@ -41,10 +39,10 @@ const sections: LegalSection[] = [
         endorsement that has not been granted.
       </p>
     ),
+    id: "use",
+    title: "Using the website",
   },
   {
-    id: "information",
-    title: "General information",
     content: (
       <>
         <p>
@@ -62,10 +60,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "information",
+    title: "General information",
   },
   {
-    id: "materials",
-    title: "Website materials",
     content: (
       <>
         <p>
@@ -82,10 +80,10 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "materials",
+    title: "Website materials",
   },
   {
-    id: "links",
-    title: "Product and external links",
     content: (
       <p>
         Links may take you to Olympus Atlas or to third-party websites. Review
@@ -94,10 +92,10 @@ const sections: LegalSection[] = [
         rights, source-data licenses, or third-party permissions.
       </p>
     ),
+    id: "links",
+    title: "Product and external links",
   },
   {
-    id: "contact",
-    title: "Updates and contact",
     content: (
       <>
         <p>
@@ -113,6 +111,8 @@ const sections: LegalSection[] = [
         </p>
       </>
     ),
+    id: "contact",
+    title: "Updates and contact",
   },
 ];
 

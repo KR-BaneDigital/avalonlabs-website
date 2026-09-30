@@ -1,71 +1,57 @@
-<a href="https://chat.vercel.ai/">
-  <img alt="Next.js 14 and App Router-ready AI chatbot." src="app/(chat)/opengraph-image.png">
-  <h1 align="center">Chat SDK</h1>
-</a>
+# Avalon Labs website
 
-<p align="center">
-    Chat SDK is a free, open-source template built with Next.js and the AI SDK that helps you quickly build powerful chatbot applications.
-</p>
+Corporate website for Avalon Labs LLC at https://www.avalonlabs.ai, deployed automatically from this repository's `main` branch to Vercel.
 
-<p align="center">
-  <a href="https://chat-sdk.dev"><strong>Read Docs</strong></a> ·
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#model-providers"><strong>Model Providers</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
-  <a href="#running-locally"><strong>Running locally</strong></a>
-</p>
-<br/>
+## Stack and scope
 
-## Features
+- Next.js App Router, React, TypeScript, and Tailwind CSS.
+- Public homepage, Privacy Policy, and Website Terms.
+- Four portfolio entries: Olympus Atlas, a financial data product, a private proprietary trading desk, and Blackfin Compass. Blackfin Compass remains in development.
+- Resend receives company inquiries and forwards them to Kyle's mailbox.
+- No website accounts, database, payments, chatbot, advertising pixels, or visitor analytics.
 
-- [Next.js](https://nextjs.org) App Router
-  - Advanced routing for seamless navigation and performance
-  - React Server Components (RSCs) and Server Actions for server-side rendering and increased performance
-- [AI SDK](https://ai-sdk.dev/docs/introduction)
-  - Unified API for generating text, structured objects, and tool calls with LLMs
-  - Hooks for building dynamic chat and generative user interfaces
-  - Supports xAI (default), OpenAI, Fireworks, and other model providers
-- [shadcn/ui](https://ui.shadcn.com)
-  - Styling with [Tailwind CSS](https://tailwindcss.com)
-  - Component primitives from [Radix UI](https://radix-ui.com) for accessibility and flexibility
-- Data Persistence
-  - [Neon Serverless Postgres](https://vercel.com/marketplace/neon) for saving chat history and user data
-  - [Vercel Blob](https://vercel.com/storage/blob) for efficient file storage
-- [Auth.js](https://authjs.dev)
-  - Simple and secure authentication
+## Local development
 
-## Model Providers
+Use Node.js 24 and pnpm 9.12.3, as declared in `package.json`.
 
-This template uses the [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) to access multiple AI models through a unified interface. The default configuration includes [xAI](https://x.ai) models (`grok-2-vision-1212`, `grok-3-mini`) routed through the gateway.
-
-### AI Gateway Authentication
-
-**For Vercel deployments**: Authentication is handled automatically via OIDC tokens.
-
-**For non-Vercel deployments**: You need to provide an AI Gateway API key by setting the `AI_GATEWAY_API_KEY` environment variable in your `.env.local` file.
-
-With the [AI SDK](https://ai-sdk.dev/docs/introduction), you can also switch to direct LLM providers like [OpenAI](https://openai.com), [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), and [many more](https://ai-sdk.dev/providers/ai-sdk-providers) with just a few lines of code.
-
-## Deploy Your Own
-
-You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/templates/next.js/nextjs-ai-chatbot)
-
-## Running locally
-
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
-
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your various AI and authentication provider accounts.
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
-
-```bash
-pnpm install
-pnpm db:migrate # Setup database or apply latest database changes
+```sh
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Your app template should now be running on [localhost:3000](http://localhost:3000).
+The public pages work without secrets. To exercise the real inbound-email integration, copy `.env.example` to `.env.local` and configure the two server-only Resend values. Never commit credentials or use production credentials in fixtures.
+
+## Validation
+
+```sh
+pnpm lint
+pnpm test
+pnpm build
+pnpm audit
+```
+
+`pnpm test` runs email-forwarding regression tests with mocked network requests; it sends no real messages. The production build includes TypeScript validation. Use `pnpm typecheck` for a separate type check, and `pnpm format` to apply formatting.
+
+## Website content and metadata
+
+- `components/site/portfolio.tsx`: brands, availability, audiences, and product links.
+- `components/site/hero.tsx`: homepage introduction.
+- `lib/contact.ts`: public inquiry address.
+- `lib/site-metadata.ts`: titles, descriptions, canonical origin, and sharing-image metadata.
+- `components/site/structured-data.tsx`: company and website JSON-LD.
+- `app/opengraph-image.tsx`: social sharing image.
+- `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png`, and `public/brand/`: Avalon branding.
+- `app/manifest.ts`, `app/robots.ts`, and `app/sitemap.ts`: browser and crawler information.
+- `app/privacy/page.tsx` and `app/terms/page.tsx`: corporate website policies.
+
+Keep product availability consistent between visible copy, metadata, structured data, and sharing images. Preserve all four portfolio entries. Corporate inquiries are used for replies and follow-up only. Planned Atlas marketing must be reflected in Atlas's own notices and controls before activation.
+
+## Email and deployment
+
+The webhook is `POST /api/webhooks/resend`. Production requires `RESEND_API_KEY` and `RESEND_WEBHOOK_SECRET` in Vercel; incoming events must have a valid Resend signature. See [inquiry-email.md](docs/inquiry-email.md) for routing, setup, and testing details.
+
+Push verified changes to `main` to trigger Vercel. Confirm the production build and live pages after deployment. Any email-routing change also requires the forwarding tests and an end-to-end mailbox check.
+
+## Maintenance
+
+Use the committed lockfile for reproducible installs. Before publishing dependency updates, run the validation commands, inspect desktop and mobile layouts, and confirm the email integration. Review audit findings against the actual application; installed packages alone do not establish exploitability.

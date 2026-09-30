@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 import { SOCIAL_IMAGE_ALT } from "@/lib/site-metadata";
 
 export const alt = SOCIAL_IMAGE_ALT;
-export const size = { width: 1200, height: 630 };
+export const size = { height: 630, width: 1200 };
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
@@ -14,19 +14,19 @@ export default async function OpenGraphImage() {
   return new ImageResponse(
     <div
       style={{
-        width: "100%",
-        height: "100%",
+        background: "#f2f3ef",
+        borderTop: "12px solid #12474b",
+        color: "#0d1b24",
         display: "flex",
         flexDirection: "column",
+        height: "100%",
         justifyContent: "space-between",
-        background: "#f2f3ef",
-        color: "#0d1b24",
         padding: "64px 76px",
-        borderTop: "12px solid #12474b",
+        width: "100%",
       }}
     >
       <div
-        style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 30 }}
+        style={{ alignItems: "center", display: "flex", fontSize: 30, gap: 18 }}
       >
         {/* ImageResponse embeds the original brand asset without a browser image loader. */}
         {/* biome-ignore lint/performance/noImgElement: next/image is not supported by ImageResponse. */}
@@ -42,28 +42,28 @@ export default async function OpenGraphImage() {
         <div
           style={{
             fontSize: 68,
+            letterSpacing: -3,
             lineHeight: 1.08,
             maxWidth: 950,
-            letterSpacing: -3,
           }}
         >
           Built for people who work with financial data.
         </div>
-        <div style={{ fontSize: 28, color: "#5c676c" }}>
+        <div style={{ color: "#5c676c", fontSize: 28 }}>
           Avalon Labs LLC · Research, data & trading
         </div>
-        <div style={{ fontSize: 23, color: "#12474b" }}>
+        <div style={{ color: "#12474b", fontSize: 23 }}>
           Olympus Atlas · Blackfin Compass (in development)
         </div>
       </div>
       <div
         style={{
+          borderTop: "1px solid #cfd3d0",
+          color: "#12474b",
           display: "flex",
+          fontSize: 22,
           justifyContent: "space-between",
           paddingTop: 24,
-          borderTop: "1px solid #cfd3d0",
-          fontSize: 22,
-          color: "#12474b",
         }}
       >
         <span>Research · Financial data · Trading · Crypto intelligence</span>

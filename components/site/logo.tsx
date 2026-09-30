@@ -1,6 +1,8 @@
 import Image from "next/image";
 
-type LogoProps = { className?: string };
+interface LogoProps {
+  className?: string;
+}
 
 export function LogoLockup({ className }: LogoProps) {
   return (

@@ -31,12 +31,12 @@ export async function POST(request: Request) {
   let event: ReturnType<Resend["webhooks"]["verify"]>;
   try {
     event = resend.webhooks.verify({
-      payload: await request.text(),
       headers: {
         id: request.headers.get("svix-id") ?? "",
-        timestamp: request.headers.get("svix-timestamp") ?? "",
         signature: request.headers.get("svix-signature") ?? "",
+        timestamp: request.headers.get("svix-timestamp") ?? "",
       },
+      payload: await request.text(),
       webhookSecret,
     });
   } catch {
@@ -82,14 +82,7 @@ export async function POST(request: Request) {
 
     const { error: sendError } = await resend.emails.send(
       {
-        from: `Avalon Labs Inquiries <${CONTACT_EMAIL}>`,
-        to: FORWARD_TO,
-        replyTo: replyTo.length ? replyTo : email.from,
-        subject: email.subject || "(no subject)",
-        text: parsed.text || (parsed.html ? "" : "(Empty message)"),
-        html: parsed.html || undefined,
         attachments: parsed.attachments.map((attachment) => ({
-          filename: attachment.filename || undefined,
           content:
             typeof attachment.content === "string"
               ? attachment.content
@@ -98,9 +91,16 @@ export async function POST(request: Request) {
                     ? attachment.content
                     : new Uint8Array(attachment.content)
                 ).toString("base64"),
-          contentType: attachment.mimeType,
           contentId: attachment.contentId?.replace(/[<>]/g, ""),
+          contentType: attachment.mimeType,
+          filename: attachment.filename || undefined,
         })),
+        from: `Avalon Labs Inquiries <${CONTACT_EMAIL}>`,
+        html: parsed.html || undefined,
+        replyTo: replyTo.length ? replyTo : email.from,
+        subject: email.subject || "(no subject)",
+        text: parsed.text || (parsed.html ? "" : "(Empty message)"),
+        to: FORWARD_TO,
       },
       // Resend deduplicates retries with the same email ID for 24 hours.
       { idempotencyKey: `avalon-inquiry/${event.data.email_id}` }

@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
 
-export type LegalSection = {
+export interface LegalSection {
+  content: ReactNode;
   id: string;
   title: string;
-  content: ReactNode;
-};
+}
 
 export function LegalPage({
   title,

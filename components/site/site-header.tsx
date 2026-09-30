@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { LogoLockup } from "./logo";
 
 const NAV = [
@@ -14,12 +14,14 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
 
-  function closeOnEscape(event: React.KeyboardEvent) {
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const toggleMenu = useCallback(() => setMenuOpen((open) => !open), []);
+  const closeOnEscape = useCallback((event: React.KeyboardEvent) => {
     if (event.key === "Escape") {
       setMenuOpen(false);
       menuButton.current?.focus();
     }
-  }
+  }, []);
 
   return (
     <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur">
@@ -30,11 +32,7 @@ export function SiteHeader() {
         Skip to content
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
-        <a
-          aria-label="Avalon Labs home"
-          href="/"
-          onClick={() => setMenuOpen(false)}
-        >
+        <a aria-label="Avalon Labs home" href="/" onClick={closeMenu}>
           <LogoLockup className="max-sm:h-7" />
         </a>
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
@@ -62,7 +60,7 @@ export function SiteHeader() {
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           className="inline-flex min-h-11 items-center gap-2 rounded-sm border px-3 text-sm lg:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={toggleMenu}
           onKeyDown={closeOnEscape}
           ref={menuButton}
           type="button"
@@ -86,7 +84,7 @@ export function SiteHeader() {
               <a
                 className="block py-3 text-sm"
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 onKeyDown={closeOnEscape}
               >
                 {item.label}

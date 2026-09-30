@@ -34,21 +34,21 @@ function signedRequest(
   timestamp = Math.floor(Date.now() / 1000)
 ) {
   const body = JSON.stringify({
-    type,
     created_at: "2026-09-28T21:00:00.000Z",
-    data: { email_id: emailId, to, from: "Visitor <visitor@example.com>" },
+    data: { email_id: emailId, from: "Visitor <visitor@example.com>", to },
+    type,
   });
   const signature = createHmac("sha256", secretBytes)
     .update(`msg_test.${timestamp}.${body}`)
     .digest("base64");
   return new Request("https://www.avalonlabs.ai/api/webhooks/resend", {
-    method: "POST",
     body,
     headers: {
       "svix-id": "msg_test",
-      "svix-timestamp": String(timestamp),
       "svix-signature": `v1,${signature}`,
+      "svix-timestamp": String(timestamp),
     },
+    method: "POST",
   });
 }
 
@@ -86,11 +86,11 @@ function mockDelivery(
       if (url === `https://api.resend.com/emails/receiving/${emailId}`) {
         return Promise.resolve(
           Response.json({
-            id: emailId,
-            to: options.storedTo ?? ["inquiries@avalonlabs.ai"],
             from: "Visitor <visitor@example.com>",
-            subject: "Partnership inquiry",
+            id: emailId,
             raw: { download_url: "https://email.example.test/raw" },
+            subject: "Partnership inquiry",
+            to: options.storedTo ?? ["inquiries@avalonlabs.ai"],
           })
         );
       }
@@ -105,7 +105,7 @@ function mockDelivery(
         return Promise.resolve(
           options.failSend
             ? Response.json(
-                { name: "application_error", message: "Unavailable" },
+                { message: "Unavailable", name: "application_error" },
                 { status: 500 }
               )
             : Response.json({ id: "forwarded-email" })
@@ -114,13 +114,13 @@ function mockDelivery(
       throw new Error(`Unexpected request: ${url}`);
     }
   );
-  return { sends, fetchMock };
+  return { fetchMock, sends };
 }
 
 test("rejects unsigned requests without reading or sending mail", async () => {
   const { fetchMock } = mockDelivery();
   const response = await POST(
-    new Request("https://example.test", { method: "POST", body: "{}" })
+    new Request("https://example.test", { body: "{}", method: "POST" })
   );
   assert.equal(response.status, 400);
   assert.equal(fetchMock.mock.callCount(), 0);
@@ -140,13 +140,16 @@ test("fails closed when configuration is missing", async () => {
 
 test("ignores other recipients and non-receiving events", async () => {
   const { fetchMock } = mockDelivery();
-  for (const request of [
+  const requests = [
     signedRequest(["someone@avalonlabs.ai"]),
     signedRequest(["inquiries@another-domain.ai"]),
     signedRequest(undefined, "email.delivered"),
-  ]) {
-    assert.deepEqual(await (await POST(request)).json(), { ignored: true });
-  }
+  ];
+  await Promise.all(
+    requests.map(async (request) => {
+      assert.deepEqual(await (await POST(request)).json(), { ignored: true });
+    })
+  );
   assert.equal(fetchMock.mock.callCount(), 0);
 });
 
@@ -166,10 +169,10 @@ test("forwards only to Kyle, preserving reply address, HTML, and inline attachme
   assert.ok(String(sent.html).includes("cid:logo"));
   assert.deepEqual(sent.attachments, [
     {
-      filename: "logo.png",
       content: "aGVsbG8=",
-      content_type: "image/png",
       content_id: "logo",
+      content_type: "image/png",
+      filename: "logo.png",
     },
   ]);
 });

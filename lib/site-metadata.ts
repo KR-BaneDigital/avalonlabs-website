@@ -16,30 +16,30 @@ export function pageMetadata(
 ): Metadata {
   const url = new URL(path, SITE_URL).toString();
   const image = {
+    alt: SOCIAL_IMAGE_ALT,
+    height: 630,
     url: new URL(SOCIAL_IMAGE_PATH, SITE_URL).toString(),
     width: 1200,
-    height: 630,
-    alt: SOCIAL_IMAGE_ALT,
   };
 
   return {
-    title,
-    description,
     alternates: { canonical: url },
+    description,
     openGraph: {
-      type: "website",
+      description,
+      images: [image],
+      locale: "en_US",
       siteName: SITE_NAME,
       title,
-      description,
+      type: "website",
       url,
-      locale: "en_US",
-      images: [image],
     },
+    title,
     twitter: {
       card: "summary_large_image",
-      title,
       description,
       images: [image],
+      title,
     },
   };
 }
