@@ -42,12 +42,13 @@ const BRANDS: Brand[] = [
       "An in-house desk that develops and runs proprietary trading algorithms. Systematic strategies are researched, back-tested, and deployed using company capital. Strategy details, markets, and performance are not publicly disclosed.",
   },
   {
-    name: null,
+    name: "Blackfin Compass",
     sector: "Crypto whale watching",
     audience: "Crypto researchers and analysts",
     status: "In development",
     description:
-      "A system in development for monitoring large cryptocurrency wallet movements and researching on-chain activity. Further product details will be shared when publicly announced.",
+      "A crypto whale-watching system in development for monitoring large cryptocurrency wallet movements and researching on-chain activity.",
+    href: "https://blackfincompass.com",
   },
 ];
 
@@ -130,7 +131,7 @@ export function Portfolio() {
                       className="inline-flex w-fit items-center gap-1 font-mono text-primary text-sm underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
                       href={brand.href}
                     >
-                      Visit Olympus Atlas
+                      Visit {brand.name}
                       <ArrowUpRight aria-hidden="true" className="size-4" />
                     </a>
                   ) : (
